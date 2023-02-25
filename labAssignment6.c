@@ -2,7 +2,23 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	if (low > high)
+	{
+		return -1;
+	}
+    	int mid = (low + high) / 2;
+    	if (numbers[mid] == value) 
+	{
+        	return mid;
+	} 
+	else if (value < numbers[mid]) 
+	{
+        	return search(numbers, value, low, mid - 1);
+	} 
+	else 
+	{
+        	return search(numbers, value, mid + 1, high);
+	}
 }
 
 void printArray(int numbers[], int sz)
